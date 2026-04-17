@@ -4,28 +4,74 @@ html
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vehicle History</title>
+    <title>Service History</title>
     <style>
-        body, html { margin: 0; padding: 0; height: 100%; font-family: sans-serif; }
-        .bg { background-image: url("../background.jpg"); height: 100%; background-position: center; background-size: cover; display: flex; align-items: center; justify-content: center; }
-        .overlay { position: absolute; height: 100%; width: 100%; background: rgba(0,0,0,0.7); }
-        .card { position: relative; z-index: 10; background: white; padding: 25px; border-radius: 15px; text-align: center; width: 85%; max-width: 350px; }
-        .logo { width: 100px; margin-bottom: 10px; }
-        .plate { background: #ffcc00; padding: 5px 15px; font-weight: bold; border-radius: 5px; display: inline-block; margin: 15px 0; border: 2px solid #000; }
-        .btn { display: block; background: #007bff; color: white; padding: 15px; margin: 10px 0; text-decoration: none; border-radius: 8px; font-weight: bold; }
-        .btn-call { background: #28a745; }
+        body, html { margin: 0; padding: 0; font-family: sans-serif; background: #f4f4f9; }
+        .header { 
+            background: url("../background.jpg") no-repeat center; 
+            background-size: cover; height: 180px; position: relative; 
+            display: flex; flex-direction: column; align-items: center; justify-content: center; color: white;
+        }
+        .overlay { position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.6); }
+        .content { position: relative; z-index: 10; padding: 20px; display: flex; flex-direction: column; align-items: center; }
+        .logo { width: 80px; margin-bottom: 5px; }
+        .plate { background: #ffcc00; color: black; padding: 5px 15px; font-weight: bold; border-radius: 5px; border: 2px solid #000; margin-top: 5px; }
+        
+        .history-container { width: 90%; max-width: 400px; margin-top: -30px; z-index: 20; }
+        .service-item { 
+            background: white; margin-bottom: 15px; padding: 15px; 
+            border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .service-info { text-align: left; }
+        .date { font-weight: bold; color: #333; display: block; }
+        .description { font-size: 0.85rem; color: #666; }
+        .view-btn { 
+            background: #007bff; color: white; padding: 8px 12px; 
+            text-decoration: none; border-radius: 5px; font-size: 0.8rem; font-weight: bold;
+        }
+        .footer-btns { margin-top: 20px; width: 90%; max-width: 400px; }
+        .btn-call { 
+            display: block; background: #28a745; color: white; text-align: center;
+            padding: 15px; text-decoration: none; border-radius: 8px; font-weight: bold; 
+        }
     </style>
 </head>
 <body>
-    <div class="bg">
+
+    <div class="header">
         <div class="overlay"></div>
-        <div class="card">
-            <img src="../logo.png" class="logo">
-            <h2>Service History</h2>
-            <div class="plate">AB 12345</div>
-            <a href="history.pdf" class="btn">📄 View Repair Records</a>
-            <a href="tel:+4700000000" class="btn btn-call">📞 Call Workshop</a>
+        <img src="../logo.png" class="logo">
+        <div class="plate">AB 12345</div>
+    </div>
+
+    <div class="content">
+        <div class="history-container">
+            
+            <!-- Service Entry 1 -->
+            <div class="service-item">
+                <div class="service-info">
+                    <span class="date">15. April 2026</span>
+                    <span class="description">Oil Change & Brake Check</span>
+                </div>
+                <a href="invoice-apr-26.pdf" class="view-btn">View PDF</a>
+            </div>
+
+            <!-- Service Entry 2 -->
+            <div class="service-item">
+                <div class="service-info">
+                    <span class="date">10. Jan 2025</span>
+                    <span class="description">Annual EU Control</span>
+                </div>
+                <a href="invoice-jan-25.pdf" class="view-btn">View PDF</a>
+            </div>
+
+        </div>
+
+        <div class="footer-btns">
+            <a href="tel:+4711223344" class="btn-call">📞 Call Workshop</a>
         </div>
     </div>
+
 </body>
 </html>
